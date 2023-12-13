@@ -64,14 +64,22 @@ def set_background(image_file):
 def main():
     set_background('bg5.png')
     
-    st.title("Chest X-ray Image Diagnosis App")
+    st.title("Chest X-Ray Predictor")
+    st.markdown("""
+    Welcome to the Chest X-Ray Predictor! Upload a chest X-ray image, and we will predict its diagnosis.
+    
+    The diagnosis will be one of the following categories:
+    - Viral Pneumonia
+    - Covid
+    - Normal
+
+    """)
+
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Image.", use_column_width=True)
-        st.write("")
-        st.write("Classifying...")
-
+        
         # Load the model
         model = load_model()
 
@@ -81,7 +89,9 @@ def main():
         try:
             # Get diagnosis
             result = diagnosis(uploaded_file, model, IMM_SIZE)
-            st.success(f"Diagnosis: {result}")
+
+            # Display the result
+            st.write("## {}".format(result))
         except Exception as e:
             st.error(f"Error during diagnosis: {e}")
             print("Error during diagnosis:", e)
