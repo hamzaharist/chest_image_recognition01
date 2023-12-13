@@ -5,6 +5,9 @@ from tensorflow.keras.models import model_from_json
 from tensorflow.keras.preprocessing import image
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
+# Define diagnosis mapping globally
+diagnosis_mapping = {0: 'Viral Pneumonia', 1: 'Covid', 2: 'Normal'}
+
 # Function to load the model
 def load_model():
     # Load model architecture from JSON file
@@ -32,13 +35,9 @@ def diagnosis(file, model, IMM_SIZE):
     predicted_class = np.argmax(predicted_probabilities, axis=-1)[0]
 
     # Map the predicted class to the diagnosis
-    diagnosis_mapping = {0: 'Viral Pneumonia', 1: 'Covid', 2: 'Normal'}
     predicted_diagnosis = diagnosis_mapping[predicted_class]
 
-    # Get the confidence score
-    confidence_score = predicted_probabilities[0][predicted_class]
-
-    return predicted_diagnosis, confidence_score
+    return predicted_diagnosis
 
 # Function to set the background
 def set_background(image_file):
@@ -92,11 +91,10 @@ def main():
 
         try:
             # Get diagnosis and confidence score
-            result, confidence_score = diagnosis(uploaded_file, model, IMM_SIZE)
+            result = diagnosis(uploaded_file, model, IMM_SIZE)
 
             # Display the result and confidence score
             st.write("## Diagnosis: {}".format(result))
-            st.write("### Confidence Score: {:.2%}".format(confidence_score))
 
             # Add true labels from your dataset
             true_labels = [1, 0, 2, ...]  # Replace with actual ground truth labels
