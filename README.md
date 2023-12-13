@@ -17,6 +17,7 @@ git clone https://github.com/hamzaharist/chest_image_recognition01.git
 Make sure you have the required dependencies installed. You can install them using the following command:
 
 bash
+
 Copy code
 ```
 pip install -r requirements.txt
@@ -26,6 +27,7 @@ pip install -r requirements.txt
 Execute the following command to run the Streamlit app:
 
 bash
+
 Copy code
 ```
 streamlit run main.py
