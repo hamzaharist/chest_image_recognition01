@@ -4,7 +4,7 @@ This Streamlit app utilizes a trained machine learning model to classify chest X
 Instructions
 Follow these steps to use the Chest Image Recognition app:
 
-##Clone the Repository:
+<h3>Clone the Repository: </h3>
 
 bash
 Copy code
