@@ -7,8 +7,9 @@ Follow these steps to use the Chest Image Recognition app:
 Clone the Repository:
 
 bash
-```
+
 Copy code
+```
 git clone https://github.com/hamzaharist/chest_image_recognition01.git
 ```
 
