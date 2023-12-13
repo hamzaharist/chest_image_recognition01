@@ -6,20 +6,20 @@ Follow these steps to use the Chest Image Recognition app:
 
 <h3>Clone the Repository: </h3>
 
-bash
+```bash
 Copy code
-'''git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/your-username/your-repo.git
 cd your-repo
 Install Dependencies:
 Make sure you have the required dependencies installed. You can install them using the following command:
 
-bash
+```bash
 Copy code
-'''pip install -r requirements.txt
+pip install -r requirements.txt
 Run the Streamlit App:
 Execute the following command to run the Streamlit app:
 
-bash
+```bash
 Copy code
 streamlit run main.py
 This will launch a local development server, and you can access the app in your web browser.
